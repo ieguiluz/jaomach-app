@@ -1,0 +1,26 @@
+@import '../../../../assets/styles/main.scss';
+
+.jaomach__header {
+  background-color: $light-gray;
+  height: 5.3rem;
+
+  .jaomach__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+
+    .header-logo {
+      align-items: center;
+      display: flex;
+      gap: 0.63rem;
+
+      &__text {
+        &__label {
+          font-weight: $bold;
+        }
+      }
+    }
+  }
+}

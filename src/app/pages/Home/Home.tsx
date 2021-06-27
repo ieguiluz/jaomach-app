@@ -1,8 +1,13 @@
 import React from 'react';
+import JaomachTemplate from '../../components/JaomachTemplate';
 
 const Home = () => {
   return (
-    <div>Home body</div>
+    <JaomachTemplate>
+      <div className="jaomach-container">
+        <h1>Home body</h1>
+      </div>
+    </JaomachTemplate>
   )
 };
 
