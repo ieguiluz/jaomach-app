@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { showProduct } from '../../api/Product'
 
-const SearchProduct = () => {
-  const [product, setProduct] = useState<IProduct>();
+const SearchProduct = (props: any) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (d: any) => {
@@ -12,7 +11,9 @@ const SearchProduct = () => {
 
   const getProductByCode = (code: string): void => {
     showProduct(code)
-    .then( ( { data: { product } } ) => setProduct(product))
+    .then( ( { data: { product } } ) => {
+      props.handleResult(product);
+    })
     .catch((err: Error) => console.log(err))
   }
 
@@ -25,19 +26,6 @@ const SearchProduct = () => {
         </label>
         <input type="submit" value="Search" />
       </form>
-
-      {product &&
-        <div>
-          <div>
-            <div>Nombre</div>
-            <div>{product.name}</div>
-            <div>Codigo</div>
-            <div>{product.code}</div>
-            <div>Precio unitario</div>
-            <div>{product.currency.symbol} {product.price}</div>
-          </div>
-        </div>
-      }
     </div>
   )
 };
