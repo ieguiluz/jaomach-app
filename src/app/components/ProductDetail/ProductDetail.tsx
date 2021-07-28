@@ -1,5 +1,4 @@
 import React from 'react'
-
 interface Props {
   productData: any
   handleAddProduct: any

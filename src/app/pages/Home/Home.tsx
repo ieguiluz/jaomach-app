@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BuyList from '../../components/BuyList';
 import JaomachTemplate from '../../components/JaomachTemplate';
 import ProductDetail from '../../components/ProductDetail';
 import SearchProduct from '../../components/SearchProduct';
@@ -26,14 +27,7 @@ const Home = () => {
         <h1>Inicio</h1>
         <div style={{ display: 'flex', gap: '20px' }}>
           <div>
-            <h2>Lista de compra</h2>
-            {productsList && productsList.map((productItem: any, index: number) => (
-              <div key={index}>
-                <span>{productItem.name}</span>&nbsp;
-                <span>{productItem.currency.symbol}</span>&nbsp;
-                <span>{productItem.price}</span>
-              </div>
-            ))}
+            <BuyList products={productsList} />
           </div>
           <div>
             <SearchProduct handleResult={handleResult} />
